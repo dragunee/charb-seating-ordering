@@ -34,7 +34,7 @@ export default function HomePage() {
     };
 
     const handleNextPage = () => {
-        navigate(`/next-page`); // Navigate to next section when button is clicked
+        navigate(`/menu`); // Navigate to next section when button is clicked
     };
 
     return (
