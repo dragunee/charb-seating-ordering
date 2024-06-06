@@ -3,7 +3,7 @@ import { Container, Row, Card } from "react-bootstrap";
 import Navigation from "../components/Navigation";
 import { collection, getDocs, writeBatch } from "firebase/firestore";
 import { db, auth } from "../firebase";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from "firebase/auth";
 
@@ -11,8 +11,6 @@ export default function ViewCart() {
   const [user, loading] = useAuthState(auth);
   const [cartItems, setCartItems] = useState([]);
   const [menusItems, setMenusItems] = useState([]);
-  const params = useParams();
-  const id = params.id;
   const navigate = useNavigate();
 
   async function getCart() {
