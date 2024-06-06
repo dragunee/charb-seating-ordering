@@ -4,6 +4,7 @@ import SignUpPage from "./views/SignUpPage";
 import HomePage from "./views/HomePage";
 import Menu from "./views/Menu";
 import OrderPage from "./views/OrderPage";
+import ViewCart from "./views/ViewCart";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/menu/:id" element={<OrderPage />} />
+        <Route path="/cart" element={<ViewCart />} />
       </Routes>
     </BrowserRouter>
   );

@@ -21,23 +21,13 @@ export default function SendToCart() {
     setQuantity(e.target.value); // Update quantity state when input changes
   };
 
-  // async function getItemPrice() {
-  //     const query = await getDocs(collection(db, "menus"));
-  //     const item = query.docs.map((doc) => {
-  //         return {id: doc.id, ...doc.data() };
-  //     })
-  //     setItem(item);
-  //     console.log(JSON.stringify(item.id));
-  // }
-
   async function addCart(id) {
-    // console.log("hello", id);
-    // console.log("not me", user.email);
-    // console.log("numberrrr", quantity);
-    await addDoc(collection(db, "cart"), {
+    await addDoc(collection(db, "carts"), {
       userEmail: user.email,
-      item: id,
+      item: itemDesc,
       quantity: quantity,
+      image: itemImage,
+      price: itemPrice,
     });
     navigate("/menu");
   }
@@ -67,7 +57,9 @@ export default function SendToCart() {
           <Col>
             <Card>
               <Card.Body>
-                <Card.Text>{itemDesc}</Card.Text>
+                <Card.Text>
+                  {itemDesc} - ${itemPrice}/serving
+                </Card.Text>
                 <Form.Control
                   type="number"
                   placeholder="Number of Servings"
